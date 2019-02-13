@@ -1,0 +1,14 @@
+This is a strange way to test the same thing.
+Compose is much better, but this work too.
+
+First of all, create a network to both containers:
+docker create network visitapp
+
+Then, create a redis container at the network created before:
+docker run -d --rm --name redis-app --network visitapp redis
+
+So, build your Dockerfile:
+docker build -t nodeapp .
+
+And run:
+docker run -p 4040:8081 --rm --name visitnode --network visitapp nodeapp

@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+  redis-app:
+    image: redis
+
+  node-app:
+    build: .
+    ports: 
+      - 4000:8081
